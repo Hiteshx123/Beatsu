@@ -501,7 +501,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -348, y: 159}
+  m_AnchoredPosition: {x: -285, y: 159}
   m_SizeDelta: {x: 141.73245, y: 34.594727}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &429944040
@@ -587,7 +587,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 1.1178741, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1706,7 +1706,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1658778888}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2136534068}
+        m_MethodName: startGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1658778888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2146,6 +2157,7 @@ MonoBehaviour:
   text1: {fileID: 1061984775}
   text2: {fileID: 568589002}
   feild: {fileID: 1587002082}
+  canvas: {fileID: 1447608614}
 --- !u!224 &2136534069
 RectTransform:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class PhotonStuff : MonoBehaviourPunCallbacks
     public Text text2;
     //public GameObject feild1;
     public InputField feild;
-     
+    public GameObject canvas;
     // Start is called before the first frame update
     void Start() {
         PhotonNetwork.NetworkingClient.EnableLobbyStatistics = true;
@@ -48,14 +48,21 @@ public class PhotonStuff : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
+        text2.text = "";
         foreach(RoomInfo info in roomList)
         {
             text2.text += info.Name;
         }
     }
+
+    public void makeMasterClient()
+    {
+        PhotonNetwork.SetMasterClient(PhotonNetwork.LocalPlayer);
+    }
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         Invoke("updateList", 1f);
+
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
@@ -65,6 +72,7 @@ public class PhotonStuff : MonoBehaviourPunCallbacks
 
     public void updateList()
     {
+        text1.text = "";
         foreach (Player player in PhotonNetwork.PlayerList) {
             Debug.Log(player.NickName);
             text1.text += player.NickName + "\n";
@@ -74,8 +82,24 @@ public class PhotonStuff : MonoBehaviourPunCallbacks
 
     }
 
+    public void startGame()
+    {
+        canvas.SetActive(false);
+        PhotonNetwork.AutomaticallySyncScene = true;
+        makeMasterClient();
+        LoadArena();
+    }
 
-  
+    void LoadArena()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.LoadLevel("beatsuArea");
+            Debug.LogFormat("PhotonNetwork : Loading Level : {0}", PhotonNetwork.CurrentRoom.PlayerCount);
+        }
+        Debug.LogError("PhotonNetwork : Trying to Load a level but we are not the master Client");
+    }
+
 
     public override void OnConnectedToMaster()
     {

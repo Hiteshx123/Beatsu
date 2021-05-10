@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/beatsu.unity
+    guid: 15461508e569a4143896cf5a6af8cb2a
+  - enabled: 1
+    path: Assets/beatsuArea.unity
+    guid: 0bf882fcad7be7c43bc75683c0fa28e4
   m_configObjects: {}
