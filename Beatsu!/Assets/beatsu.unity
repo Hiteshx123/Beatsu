@@ -2158,6 +2158,8 @@ MonoBehaviour:
   text2: {fileID: 568589002}
   feild: {fileID: 1587002082}
   canvas: {fileID: 1447608614}
+  playerPrefab: {fileID: 5246252948212040045, guid: 60525bb38ad40f945a073cca614a2519,
+    type: 3}
 --- !u!224 &2136534069
 RectTransform:
   m_ObjectHideFlags: 0

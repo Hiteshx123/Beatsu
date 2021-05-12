@@ -12,10 +12,14 @@ public class PhotonStuff : MonoBehaviourPunCallbacks
     //public GameObject feild1;
     public InputField feild;
     public GameObject canvas;
+    public GameObject playerPrefab;
     // Start is called before the first frame update
     void Start() {
         PhotonNetwork.NetworkingClient.EnableLobbyStatistics = true;
+        PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.ConnectUsingSettings();
+        
+        
     }
 
     string playerName = "";
@@ -26,7 +30,7 @@ public class PhotonStuff : MonoBehaviourPunCallbacks
 
 
         PhotonNetwork.JoinOrCreateRoom("water", new RoomOptions { IsVisible = true, MaxPlayers = 2}, PhotonNetwork.CurrentLobby);
-
+        startGame();
     }
     public static PhotonStuff water;
     private void Awake()
@@ -38,7 +42,9 @@ public class PhotonStuff : MonoBehaviourPunCallbacks
             water = this;
             DontDestroyOnLoad(gameObject);
         }
+
         
+
     }
     public void dissconect()
     {
@@ -55,10 +61,7 @@ public class PhotonStuff : MonoBehaviourPunCallbacks
         }
     }
 
-    public void makeMasterClient()
-    {
-        PhotonNetwork.SetMasterClient(PhotonNetwork.LocalPlayer);
-    }
+  
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         Invoke("updateList", 1f);
@@ -85,8 +88,8 @@ public class PhotonStuff : MonoBehaviourPunCallbacks
     public void startGame()
     {
         canvas.SetActive(false);
-        PhotonNetwork.AutomaticallySyncScene = true;
-        makeMasterClient();
+        
+      
         LoadArena();
     }
 
@@ -94,7 +97,7 @@ public class PhotonStuff : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            PhotonNetwork.LoadLevel("beatsuArea");
+            PhotonNetwork.LoadLevel(1);
             Debug.LogFormat("PhotonNetwork : Loading Level : {0}", PhotonNetwork.CurrentRoom.PlayerCount);
         }
         Debug.LogError("PhotonNetwork : Trying to Load a level but we are not the master Client");
@@ -111,7 +114,20 @@ public class PhotonStuff : MonoBehaviourPunCallbacks
     {
         Invoke("updateList", 1f);
         PhotonNetwork.LocalPlayer.NickName = feild.text;
+        if(PlayerManager.LocalPlayerInstance == null)
+        {
+            PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 0f, 0f), Quaternion.identity, 0);
+        }
     }
+
+    public void anothermethod()
+    {
+        if (PlayerManager.LocalPlayerInstance == null)
+        {
+            PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 0f, 0f), Quaternion.identity, 0);
+        }
+    }
+    
 
     // Update is called once per frame
     void Update()
