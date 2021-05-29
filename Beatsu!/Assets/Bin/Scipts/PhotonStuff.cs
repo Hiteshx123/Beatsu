@@ -13,6 +13,7 @@ public class PhotonStuff : MonoBehaviourPunCallbacks
     public InputField feild;
     public GameObject canvas;
     public GameObject playerPrefab;
+    public SongParser parser;
     // Start is called before the first frame update
     void Start() {
         PhotonNetwork.NetworkingClient.EnableLobbyStatistics = true;
@@ -99,8 +100,11 @@ public class PhotonStuff : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.LoadLevel(1);
             Debug.LogFormat("PhotonNetwork : Loading Level : {0}", PhotonNetwork.CurrentRoom.PlayerCount);
+        }else
+        {
+            Debug.LogError("PhotonNetwork : Trying to Load a level but we are not the master Client");
         }
-        Debug.LogError("PhotonNetwork : Trying to Load a level but we are not the master Client");
+        
     }
 
 

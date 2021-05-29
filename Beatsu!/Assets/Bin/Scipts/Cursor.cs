@@ -13,6 +13,7 @@ public class Cursor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        
+
     }
 }
