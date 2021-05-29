@@ -129,7 +129,7 @@ public class PhotonStuff : MonoBehaviourPunCallbacks
     }
     
 
-    // Update is called once per frame
+    // Update is called once per frame0
     void Update()
     {
         
