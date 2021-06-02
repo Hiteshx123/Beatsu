@@ -164,9 +164,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14684}
     - Class: 114
-      Script: {instanceID: 14822}
+      Script: {instanceID: 14824}
     - Class: 114
-      Script: {instanceID: 14860}
+      Script: {instanceID: 14862}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -213,6 +213,12 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 12456}
+    - Class: 114
+      Script: {instanceID: 14824}
+    - Class: 115
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -413,7 +419,7 @@ ScriptsOnlyBuild:
     className: Scrollbar
   - hash:
       serializedVersion: 2
-      Hash: c40fcdfe4116fc90514d7968983624cd
+      Hash: 63691dde3b11f271108206d254ae7171
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerManager
@@ -1497,6 +1503,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Asteroids
     className: PlayerListEntry
+  - hash:
+      serializedVersion: 2
+      Hash: 9276d6e74f77adb67879bf09afdb5b3c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: noteScript
   - hash:
       serializedVersion: 2
       Hash: 87207d40b89ca632396b05b3cb1e69b0
